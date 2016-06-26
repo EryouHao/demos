@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css3目标伪类选择器制作手风琴效果</title>
+  <style>
+    .main{
+      padding:20px;
+      margin:30px auto;
+      box-shadow: 0 0 10px #ccc;
+      border-radius: 3px;
+      min-height: 500px;
+      width: 600px;
+    }
+    .header{
+      height: 100px;
+      margin:0 auto;
+      line-height: 100px;
+      text-align: center;
+      font-size: 24px;
+      font-family: "微软雅黑";
+    }
+    .accordionMenu{
+      background: #fff;
+      color: #424242;
+      font: 12px Arial,Verdana,sans-serif;
+      margin:0 auto;
+      padding:10px;
+      width: 500px;
+    }
+    .accordionMenu h2{
+      margin:5px 0;
+      padding:0;
+      position: relative;
+    }
+    .accordionMenu h2:before{ /*制作向下三角效果 利用伪类可以减少html标签*/
+      border:5px solid #fff;
+      border-color: transparent transparent transparent #fff;
+      content: "";
+      height: 0;
+      position: absolute;
+      right: 10px;
+      top: 15px;
+      width: 0;
+    }
+    .accordionMenu h2 a{ /*制作手风琴标题栏效果*/
+      background: #EE6363;
+      border-radius: 3px;
+      color: #fff;
+      display: block;
+      font-size: 13px;
+      font-weight: normal;
+      margin:0;
+      padding:10px 10px;
+      text-decoration: none;
+    }
+    .accordionMenu:target h2 a, /*目标标题的效果*/
+    .accordionMenu h2 a:focus,
+    .accordionMenu h2 a:hover,
+    .accordionMenu h2 a:active{
+      background: #F08080;
+      color:#fff;
+    }
+    .accordionMenu p{
+      margin:0;
+      height: 0;
+      overflow: hidden;
+      padding:0 10px;
+      transition: height .5s ease-in;
+    }
+    .accordionMenu :target p{ /*展开时对应目标内容*/
+      height: 100px; /*显示对应目标栏内容*/
+      overflow: auto;
+      background: #eee;
+      border-radius: 3px;
+    }
+    .accordionMenu :target h2:before{ /*展开时标题三角效果*/
+      border-color: #fff transparent transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="header">
+      css3目标伪类选择器制作手风琴效果
+    </div>
+    <div class="accordionMenu">
+      <div class="menuSection" id="brand">
+        <h2><a href="#brand">Brand</a></h2>
+        <p>内容1</p>
+      </div>
+      <div class="menuSection" id="promotion">
+        <h2><a href="#promotion">Promotion</a></h2>
+        <p>内容2</p>
+      </div>
+      <div class="menuSection" id="event">
+        <h2><a href="#event">Event</a></h2>
+        <p>内容3</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
