@@ -1,0 +1,96 @@
+<html>
+<head>
+  <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control " content="no-cache,must-revalidate"> 
+    <meta name="description" content="">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <title>css实现毛玻璃效果</title>
+  <style type="text/css">
+  html, body, div, h1, h2, h3, h4, h5, h6, p, span, img, input {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    font-size: 19px;
+    font-family: '微软雅黑','Verdana','Arial';
+    color: rgba(0,0,0,0.8);
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('../images/macox10.11.jpg');
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .content {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    overflow: hidden;
+    z-index: 2;
+    padding: 50px;
+    box-sizing: border-box;
+  }
+
+  .content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    z-index: -3;
+    margin: -30px;
+    background-image: url('../images/macox10.11.jpg');
+    background-position: center top;
+    background-size: cover;
+    /*设置背景图像固定，这样无论窗口如何变，模糊部分都会和网页背景图重合*/
+    background-attachment: fixed;
+  }
+
+  .content h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 200;
+  }
+
+  .content p {
+    text-indent: 2em;
+    line-height: 1.7;
+    font-weight: 200;
+  }
+  code{
+    background-color: rgba(255, 106, 106,0.3);
+    font-family: 'Consolas';
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>css实现毛玻璃效果</h1> 
+      <p>关键点：</p>
+      <p>1.通过css3属性<code>filter:blur(20px);</code>来设置高斯模糊</p>  
+      <p>2.通过伪元素增加一个层级，放置模糊的图片</p>  
+      <p>3.通过设置<code>background-attachment：fixed;</code>将模糊图像和网页背景图重合</p>
+      <p>4.通过给伪元素的层设置<code>margin:-30px;</code>和<code>overflow:hidden;</code>来扩大模糊效果</p>  
+    </div>
+  </div>
+</body>
+</html>
