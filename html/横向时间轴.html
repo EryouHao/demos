@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>横向时间轴</title>
+  <style>
+    *{margin:0;padding:0;}
+    html,body{
+      font-family: '微软雅黑';
+      font-size: 14px;
+    }
+    .main{
+      width: 800px;
+      height: 400px;
+      margin:100px auto;
+      position: relative;
+      overflow: auto;
+    }/* 
+    .bor{
+      border:2px solid #1E90FF;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 0;
+    } */
+    .container{
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+    .item{
+      width: 150px;
+      text-align: center;
+      position: absolute;
+    }
+    .container > .item:nth-child(2n+1){
+      top: -19px;
+    }
+    .container > .item:nth-child(2n){
+      top: -73px;
+    }
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid #1E90FF;
+      margin-left: 70px; 
+    }
+    .container > .item:nth-child(2n) .triangle {
+      border-top: 10px solid #1E90FF;
+      border-bottom: none;
+    }
+    .textcon{
+      padding:10px;
+      background: #1E90FF;
+      border-radius: 3px;
+      width: 130px;
+      height: 40px;
+      color: #fff;
+    }
+    .dot{
+      width: 0;
+      height: 0;
+      border:5px solid #1E90FF;
+      border-radius: 50%;
+      margin-left: 70px;
+    }
+    .error-textcon{
+      background: #e24646;
+    }
+    .error-triangle{
+      border-bottom: 10px solid #e24646;
+    }
+    .container > .item:nth-child(2n) .error-triangle {
+      border-top: 10px solid #e24646;
+      border-bottom: none;
+    }
+    .error-dot{
+      border:5px solid #e24646;
+    }
+    .time{
+      font-size: 12px;
+    }
+    .line{
+      width: 100%;
+      border:2px solid #1E90FF;
+      position: absolute;
+      top: 19px;
+      left: 0;
+      z-index: -1;
+    }
+    .container > .item:nth-child(2n) .line {
+      top: 73px;
+    }
+    .right-triangle{
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 20px solid #1E90FF;
+      position: absolute;
+      top: -10px;
+      right: -5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <!-- 时间轴线 -->
+    <!-- <div class="bor"></div> -->
+    <!-- 内容容器 -->
+    <div id="container" class="container">
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="triangle"></div>
+        <div class="textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+        <div class="time">15:18</div>
+      </div>
+
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot error-dot"></div>
+        <div class="triangle error-triangle"></div>
+        <div class="textcon error-textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+        <div class="time">15:18</div>
+      </div>
+
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="triangle"></div>
+        <div class="textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+        <div class="time">15:18</div>
+      </div>
+
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="triangle"></div>
+        <div class="textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+        <div class="time">15:18</div>
+      </div>
+
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="triangle"></div>
+        <div class="textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div class="line"></div>
+        <div class="time">15:18</div>
+      </div>
+
+      <div class="item">
+        <div class="time">15:18</div>
+        <div class="line"></div>
+        <div class="dot"></div>
+        <div class="triangle"></div>
+        <div class="textcon">
+          hello world!
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="textcon">
+          hello world!
+        </div>
+        <div class="triangle"></div>
+        <div class="dot"></div>
+        <div id="line" class="line">
+        </div>
+        <div class="time">15:18</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      var items = document.getElementsByClassName('item');
+      var temp = 0;
+      for(var i = 0;i < items.length;i++){
+        if((i%2) === 0){
+          items[i].style.left = temp+'px';
+        }else{
+          items[i].style.left = temp+'px';
+        }
+        temp+=120;
+      }
+
+      var lastline = items[items.length-1].getElementsByClassName('line');
+      var newElement = document.createElement('div');
+      newElement.setAttribute('class','right-triangle');
+      document.getElementById('line').appendChild(newElement);
+
+    }
+  </script>
+</body>
+</html>
