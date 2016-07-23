@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css练习之-左侧固定右侧自适应布局</title>
+	<style>
+		*{margin:0;padding:0;}
+		body,h2{
+			font:200 18px '微软雅黑';
+		}
+		h2{
+			margin:20px ;
+		}
+		/*方式一 左侧浮动，右侧设置margin-left宽度为左侧宽度 */
+		.left-1{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: #eee;
+		}
+		.right-1{
+			background: #ccc;
+			min-height: 100px;
+			margin-left: 100px;
+		}
+
+		/*方式二 左右均浮动，左侧设置负margin，右侧设置margin-left。
+					 会有隐藏文字的bug不采用*/
+		.test-2{
+			overflow: hidden;
+		}
+		.left-2{
+			float: left;
+			width: 100px;
+			height: 100px;
+			background: #eee;
+			margin-right: -100%;
+		}
+		.right-2{
+			float: left;
+			width: 100%;
+			min-height: 100px;
+			margin-left: 100px;
+			background: #ccc;
+		}
+		/*方式三 通过设置overflow:hidden;来触发right-3生成BFC*/
+		/*清除浮动时给父元素设置overflow:hidden;也是利用此原理*/
+		.left-3{
+			width: 100px;
+			height: 100px;
+			background: #eee;
+			float: left;
+		}
+		.right-3{
+			min-height: 100px;
+			overflow: hidden;
+			background: #ccc;
+		}
+		div[class^=test]{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h2>方式一 左侧浮动，右侧设置margin-left宽度为左侧宽度</h2>
+	<div class="test-1">
+		<div class="left-1"></div>
+		<div class="right-1">
+			右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分
+		</div>
+	</div>
+	<h2>方式二 左右均浮动，左侧设置负margin，右侧设置margin-left。
+					 会有隐藏文字的bug不采用</h2>
+	<div class="test-2">
+		<div class="left-2"></div>
+		<div class="right-2">
+				右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右123456侧内容部分右侧内容部分
+		</div>
+	</div>
+	<h2>方式三 通过设置overflow:hidden;来触发right-3生成BFC. 清除浮动时给父元素设置overflow:hidden;也是利用此原理</h2>
+	<div class="test-3">
+		<div class="left-3"></div>
+		<div class="right-3">
+				右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右侧内容部分右123456侧内容部分右侧内容部分
+		</div>
+	</div>
+
+</body>
+</html>
