@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>制作3D搜索表单</title>
+	<style>
+		*{margin:0;padding:0;}
+		.box{
+			margin:100px auto;
+		}
+		/*表单容器3D效果*/
+		#formWrapper{
+			width: 450px;
+			padding:8px;
+			margin:20px;
+			overflow: hidden;
+			border:1px solid;
+			border-color: #dedede #bababa #aaa #bababa;
+			box-shadow: 0 3px 3px rgba(255,255,255,1),
+									0 3px 0 #bbb,
+									0 4px 0 #aaa,
+									0 5px 5px #444;
+			border-radius: 10px;
+			background: #f6f6f6;
+			background-image:-webkit-gradient(linear,left top,left bottom,from(#f6f6f6),to(#eae8e8));
+			background-image:linear-gradient(top,#f6f6f6,#eae8e8);
+		}
+		/*表单输入框的搜索按钮效果*/
+		#formWrapper .search{
+			width: 330px;
+			height: 20px;
+			padding:10px 5px;
+			float: left;
+			font:bold 16px 'lucida sans','trebuchet MS','Tahoma';
+			border:1px solid #ccc;
+			box-shadow: 0 1px 1px #ddd inset,0 1px 0 #fff;
+		}
+		/*输入框得到焦点时样式*/
+		#formWrapper .search:focus{
+			outline: 0; /*轮廓设置为0*/
+			border-color: #aaa;
+			box-shadow: 0 1px 1px #bbb inset;
+		}
+		/*单独设置placeholder的字体样式，
+			这样当输入内容的时候会是原来的字体样式，开发的时候也要借鉴这个方式*/
+		#formWrapper .search::-webkit-input-placeholder{
+			color: #999;
+			font-weight: normal;
+		}
+		/*搜索按钮效果*/
+		#formWrapper .btn{
+			float: right;
+			border:1px solid #00748f;
+			height: 42px;
+			width: 100px;
+			padding:0;
+			cursor: pointer;
+			font:bold 15px Arial Helvetica;
+			color:#fafafa;
+			text-transform: uppercase; /*文字转换为大写字母*/
+			background-color: #0483a0;
+			background-image: -webkit-gradient(linear,left top,
+																				 left bottom,from(#31b2c3),to(#0483a0));
+			background-image: -webkit-linear-gradient(top,#31b2c3,#0483a0);
+			border-radius:3px;
+			text-shadow:0 1px 0 rgba(0,0,0, .3);
+			box-shadow: 0 1px 0 rgba(255,255,255, .3) inset,
+									0 1px 0 #fff;
+		}
+		/*按钮悬浮状态和焦点状态下效果*/
+		/*实现方式是改变原来默认按钮效果上下颜色翻转*/
+		#formWrapper .btn:hover,
+		#formWrapper .btn:focus {
+			background-color: #31b2c3;
+			background-image:-webkit-linear-gradient(top,#0483a0,#31b2c3);
+		}
+		/*按钮点击时效果*/
+		/*点击时内陷阴影效果*/
+		#formWrapper .btn:active{
+			outline:0;
+			box-shadow: 0 1px 4px rgba(0,0,0, .5) inset;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<form action="" id="formWrapper">
+			<div class="formFiled clearfix">
+
+				<input type="text" required="" placeholder="Search for CSS3,HTML5,JQuery,..." class="search">
+
+				<input type="submit" class="btn submit" value="go">
+
+			</div>
+		</form>
+	</div>
+</body>
+</html>
