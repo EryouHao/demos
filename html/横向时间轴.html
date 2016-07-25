@@ -15,14 +15,7 @@
       margin:100px auto;
       position: relative;
       overflow: auto;
-    }/* 
-    .bor{
-      border:2px solid #1E90FF;
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      left: 0;
-    } */
+    }
     .container{
       position: absolute;
       top: 50%;
@@ -56,7 +49,7 @@
       background: #1E90FF;
       border-radius: 3px;
       width: 130px;
-      height: 40px;
+      min-height: 40px;
       color: #fff;
     }
     .dot{
@@ -107,131 +100,8 @@
 </head>
 <body>
   <div class="main">
-    <!-- 时间轴线 -->
-    <!-- <div class="bor"></div> -->
     <!-- 内容容器 -->
-    <div id="container" class="container">
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="triangle"></div>
-        <div class="textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-        <div class="time">15:18</div>
-      </div>
-
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot error-dot"></div>
-        <div class="triangle error-triangle"></div>
-        <div class="textcon error-textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-        <div class="time">15:18</div>
-      </div>
-
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="triangle"></div>
-        <div class="textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-        <div class="time">15:18</div>
-      </div>
-
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="triangle"></div>
-        <div class="textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-        <div class="time">15:18</div>
-      </div>
-
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="triangle"></div>
-        <div class="textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div class="line"></div>
-        <div class="time">15:18</div>
-      </div>
-
-      <div class="item">
-        <div class="time">15:18</div>
-        <div class="line"></div>
-        <div class="dot"></div>
-        <div class="triangle"></div>
-        <div class="textcon">
-          hello world!
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="textcon">
-          hello world!
-        </div>
-        <div class="triangle"></div>
-        <div class="dot"></div>
-        <div id="line" class="line">
-        </div>
-        <div class="time">15:18</div>
-      </div>
-    </div>
+    <div id="container" class="container"></div>
   </div>
   <script>
     window.onload = function() {
@@ -251,6 +121,77 @@
       newElement.setAttribute('class','right-triangle');
       document.getElementById('line').appendChild(newElement);
 
+    }
+  </script>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script>
+    $(function(){
+      getItems(data);
+    });
+
+    var data = [
+        {"pName":"张三","pTime":"2016/7/25 9:28","pText":"状态良好！","pState":"健康"},
+        {"pName":"张三","pTime":"2016/7/25 9:30","pText":"状态良好！","pState":"健康"},
+        {"pName":"张三","pTime":"2016/7/25 9:40","pText":"状态糟糕！","pState":"有问题"},
+        {"pName":"张三","pTime":"2016/7/25 9:45","pText":"状态良好！","pState":"健康"},
+        {"pName":"张三","pTime":"2016/7/25 9:50","pText":"状态糟糕！","pState":"危险"},
+        {"pName":"张三","pTime":"2016/7/25 9:59","pText":"状态良好！","pState":"健康"}
+    ];
+    var dlength = data.length;
+
+    function getItems(data){
+
+    // 定义两种类型的拼接字符串
+    var itemBottom = '<div class="item">'+
+                        '<div class="time">'+'test'+'</div>'+
+                        '<div class="line"></div>'+
+                        '<div class="dot"></div>'+
+                        '<div class="triangle"></div>'+
+                        '<div class="textcon">'+'</div>'+
+                     '</div>';
+
+    var itemTop =    '<div class="item">'+
+                        '<div class="textcon">'+'</div>'+
+                        '<div class="triangle"></div>'+
+                        '<div class="dot"></div>'+
+                        '<div class="line"></div>'+
+                        '<div class="time">'+'</div>'+
+                     '</div>';
+    //定义一个jquery对象来获取id=container的div
+    var $container =  $('#container');
+      // 除最后一个的前面所有Item
+      for(var i = 0; i < data.length;i++){
+        // 从1数单数
+        // 下面
+        if(i % 2 === 0){
+          $container.append(itemBottom);
+        }else{
+          $container.append(itemTop);
+        }
+        var $last = $('#container').children().last();
+        $last.find('.time').html(data[i].pTime);
+        $last.find('.textcon').html(data[i].pText);
+        if(data[i].pState !== '健康'){
+          $last.find('.dot, .triangle, .textcon').each(function(i,n){
+            var $this = $(n);
+            switch(n.className){
+              case 'dot':
+                $this.addClass('error-dot');
+                break;
+              case 'triangle':
+                $this.addClass('error-triangle');
+                break;
+              case 'textcon':
+                $this.addClass('error-textcon');
+                break;
+            }
+          });
+        }
+        if(i == (data.length-1)){
+          $container.children().last().find('.line').attr('id','line');
+        }
+        
+      }
     }
   </script>
 </body>
