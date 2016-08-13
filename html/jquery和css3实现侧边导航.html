@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jquery和css3实现侧边导航</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    body{
+      font: 200 16px '微软雅黑';
+    }
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+    .btn-menu{
+      display: inline-block;
+      padding:10px 30px;
+      background: orange;
+      color: #fff;
+      margin:20px;
+    }
+    .menu{
+      width: 200px;
+      background: #4F4F4F;
+      position: fixed;
+      left: -200px;
+      top: 0;
+      bottom: 0;
+      padding-top: 100px;
+      transition: left .3s;
+    }
+    .menu ul a{
+      display: block;
+      padding:10px 30px 10px 10px;
+      text-align: right;
+      color: orange;
+    }
+    .menu ul a:hover{
+      background: #666666;
+    }
+    .bg{
+      display: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:;" class="btn-menu">侧边导航</a>
+  <div class="bg"></div>
+  <div class="menu">
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">归档</a></li>
+      <li><a href="#">标签</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+  </div>
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script>
+    $(function(){
+
+      $('.btn-menu').on('click',function(){
+        $('.menu').css({'left':'0px'});
+        $('.bg').fadeIn();
+      });
+      $('.bg').on('click',function(){
+        $('.menu').css({'left':'-200px'});
+        $('.bg').fadeOut();
+      });
+
+    });
+  </script>
+</body>
+</html>
