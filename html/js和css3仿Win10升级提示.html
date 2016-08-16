@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js和css3仿Win10升级提示</title>
+  <style>
+    *{margin:0;padding:0;}
+    body{
+      font:200 14px '微软雅黑';
+    }
+    .win{
+      width: 580px;
+      height: 317px;
+      border: 5px solid #000;
+      border-bottom: 8px solid #000;
+      border-radius: 5px 5px 0 0;
+      margin:100px auto;
+      padding: 10px;
+      position: relative;
+      background: #1C86EE;
+      text-align: center;
+      color: #fff;
+      display: table;
+      animation: bgcolor 10s ease-in-out infinite;
+    }
+    .win p{
+      font-size: 24px;
+      display: table-cell;
+      vertical-align: middle;
+      display: none;
+    }
+    .win:after{
+      content: '';
+      position: absolute;
+      width: 126%;
+      left: -13%;
+      bottom: -18px;
+      height: 10px;
+      border-radius: 0 0 40px 40px / 0 0 5px 5px;
+      background: #ccc;
+    }
+    .win:before{
+      content: '';
+      position: absolute;
+      width: 14%;
+      left: 43%;
+      bottom: -13px;
+      height: 5px;
+      border-radius: 0 0 40px 40px;
+      background: #eee;
+      z-index: 1;
+    }
+    @keyframes bgcolor{
+      0%{
+        background: #1C86EE;
+      }
+      14%{
+        background: #1874CD;
+      }
+      28%{
+        background: #436EEE;
+      }
+      42%{
+        background: #104E8B;
+      }
+      56%{
+        background: #436EEE;
+      }
+      70%{
+        background: #1874CD;
+      }
+      100%{
+        background: #1C86EE;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="win">
+    <p>开始升级</p>
+    <p>青，出于蓝而胜于蓝。冰，水为之而寒于水。正在准备升级，请勿关闭你的电脑。</p>
+    <p>剑阁峥嵘而崔嵬，一夫当关，万夫莫开。这些更新能在网络环境中提供更好的保护。</p>
+    <p>小荷才露尖尖角，早有蜻蜓立上头。请前往"开始"菜单>"入门"应用查看新增功能。</p>
+    <p>一花独放不是春，百花齐放春满园。为你提供的应用均经过精挑细选，确保让你爱不释手。</p>
+    <p>请尽情使用吧！</p>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var words = document.getElementsByTagName('p');
+      words[0].style.display = 'table-cell';
+      var i = 1;
+      setInterval(function () {
+        words[words.length-1].style.display = 'none';
+        words[i].style.display = 'table-cell';
+        if(i >0){
+          words[i-1].style.display = 'none';          
+        }
+        i++;
+        if(i >= words.length){
+          i = 0;
+        }
+      }, 5000);
+    }
+  </script>
+</body>
+</html>
