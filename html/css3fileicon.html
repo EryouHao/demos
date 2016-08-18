@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css3实现文件图标</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    body{
+      font:200 14px '微软雅黑';
+    }
+    .icon{
+      width: 800px;
+      margin: 100px auto;
+      text-align: center;
+      font-family: Arial, Tahoma, sans-serif;
+    }
+    h2{
+      font:200 36px '微软雅黑';
+      padding-bottom: 20px;
+    }
+    .file-icon{
+      width: 96px;
+      height: 128px;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 10px;
+      position: relative;
+    }
+    .file-icon::before{
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width:0;
+      height: 0;
+      border-bottom-left-radius: 3px;
+      border-style: solid;
+      border-width: 16px;
+      border-color: #FFF #FFF rgba(255,255,255,.35) rgba(255,255,255,.35);
+    }
+    .file-icon::after{
+      display: block;
+      content: attr(data-type);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      font-size: 24px;
+      padding:4px 10px;
+      text-align: left;
+    }
+    .file-icon[data-type^=doc]{
+      background: #307CF1;
+    }
+    .file-icon[data-type^=ppt]{
+      background: #D24726;
+    }
+    .file-icon[data-type^=xls]{
+      background: #0F9D58;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">
+    <h2>CSS3实现文件图标</h2>
+    <div class="file-icon" data-type="doc"></div>
+    <div class="file-icon" data-type="ppt"></div>
+    <div class="file-icon" data-type="xls"></div>
+  </div>
+</body>
+</html>
