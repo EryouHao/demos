@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>javascript实现贪吃蛇</title>
+  <style>
+    .Food{
+      background-color: #0000ff;
+    }
+    .Snake{
+      background-color: #ff0000;
+    }
+  </style>
+</head>
+<body class="test">
+  <!-- <h2 id="title" style="width: 1000px;height: 50px;border:1px solid #000;">分数<div id="score">0</div></h2> -->
+  <div id="container"></div>
+  <script language="JavaScript">
+  <!--
+    var Rows = 20; //设置行
+    var Cells = 20; //设置列
+    var Num = 15; //地图的大小
+    var BorderWidth = 5; //地图的边框
+    var Speed = 5000; //设置蛇的速度
+    var timeobj = 300; //设置延迟时间
+    var stat = 0;
+
+    function CMap () {
+      var BW = eval(Cells * Num + 2 * BorderWidth - 10); //设置列的边框宽度
+      var BH = eval(Rows * Num + 2 * BorderWidth - 10); //设置行的边框高度
+
+      document.getElementById('container').innerHTML = '<div id=MainMap style=position:absolute;left:' + (document.body.clientWidth - BW) / 2 +'px;top:'+ -(document.body.clientHeight - BH) / 2 +'px;width:' + BW + 'px;height:'+ BH +'px;border-width:'+ BorderWidth +'px;border-style:inset;border-color:#0000cc></div>';
+
+      Map = new Array(); //设置地图数组
+      for (y = 0; y < Rows; y++) {
+        Map[y] = new Array();
+        for (x = 0; x < Cells; x++) {
+          Map[y][x] = '0';
+        }
+      }
+
+      Sx = parseInt(Math.random() * Cells); //设置蛇的x轴位置
+      Sy = parseInt(Math.random() * Rows); //设置蛇的y轴位置
+
+      cSnake();
+      cFood();
+
+      AllDiv = MainMap.getElementsByTagName('div'); //MainMap.all.tags('DIV');
+      AllSpan = MainMap.getElementsByTagName('span');
+      isDoSnake();
+    }
+
+    //创建蛇
+    function cSnake () {
+      MainMap.innerHTML += '<div x='+Sx+' y='+Sy+' style=position:absolute;left:' + Sx * Num + 'px;top:' + Sy * Num + 'px;width:' + Num + 'px;height:' + Num + 'px;overflow:hidden class=Snake></div>';
+      Map[Sy][Sx] = 'S'; 
+    }
+
+    //创建食物
+    function cFood () {
+      Fx = parseInt(Math.random() * Cells); //设置食物的位置
+      Fy = parseInt(Math.random() * Rows); //设置食物的位置
+      if (Map[Fy][Fx] == '0') {
+        MainMap.innerHTML += '<span style=position:absolute;left:' + Fx * Num + 'px;top:' + Fy * Num + 'px;width:' + Num + 'px;height:' + Num +'px;overflow:hidden class=Food></span>';
+        Map[Fy][Fx] = 'F';
+      }
+      else cFood(); //创建食物
+    }
+
+    //设置移动
+    function Move () {
+      Sx += GX;
+      Sy += GY;
+      isDoSnake();
+      if ((Sy < 0 || Sy >= Rows) || (Sx < 0 || Sx >= Cells)) {
+        restartGame(); //判断蛇头前面撞到边界后重新开始游戏
+      } else {
+        if (Map[Sy][Sx] == 'F') {
+          MoveEateFood();
+        } else {
+          MoveNoFood();
+        }
+      }
+    }
+
+    //检测是否撞到蛇身上,有bug
+    function isDoSnake () {
+      var temp = [];
+      for (var i = AllDiv.length - 1; i >= 0; i--) {
+        temp.push(AllDiv[i].getAttribute('y') + AllDiv[i].getAttribute('x'));
+      }
+      var sortTemp = temp.sort();
+      for (var i = sortTemp.length - 1; i >= 0; i--) {
+         if (sortTemp[i] == sortTemp[i+1]) {
+          restartGame();
+         }
+       } 
+    }
+
+    //重新开始游戏
+    function restartGame () {
+      var msg = confirm("游戏失败！确定重新开始吗？");
+      if (msg) {
+        window.location.reload();
+      }
+    }
+
+    //前面是空白地方
+    function MoveNoFood () {
+      Map[AllDiv[0].getAttribute('y')][AllDiv[0].getAttribute('x')] = '0';
+      // Map[AllDiv[0].y][AllDiv[0].x] = '0'; 错误，不能直接读x y 属性
+      // AllDiv[0].removeNode(true); IE下可用 谷歌下是removeNode is not function
+      removeElement(AllDiv[0]);
+      cSnake();
+      setTimeout('Move()', timeobj);
+    }
+
+    //封装removeElement()方法
+    function removeElement (_element) {
+      var _parentElement = _element.parentNode;
+        if (_parentElement) {
+          _parentElement.removeChild(_element);
+        }
+    }
+
+    //前面是食物
+    function MoveEateFood () {
+      cSnake();
+      removeElement(AllSpan[0]);
+      cFood(); //????是不是应该cFood();
+      setTimeout('Move()', timeobj);
+    }
+
+    //分数增加
+    // var scoreNum = 0;
+    // function addScore () {
+    //   scoreNum ++;
+    //   document.getElementById('score').innerHTML(scoreNum);
+    // }
+
+    //操作键盘
+    document.onkeydown = KeyDown;
+    function KeyDown () {
+      Key = event.keyCode;
+      switch (Key) {
+        case 37: fangxiang(-1, 0); break; //左
+        case 39: fangxiang(1, 0); break; //右
+        case 38: fangxiang(0, -1); break; //上
+        case 40: fangxiang(0, 1); break; //下
+      }
+      return false;
+    }
+
+    //方向控制
+    function fangxiang (x, y) {
+      GX = x;
+      GY = y;
+      if (stat == 0) {
+        stat = 1;
+        Move();
+      }
+    }
+
+    onload = CMap;
+    //-->
+  </script>
+</body>
+</html>
