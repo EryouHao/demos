@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3实现多彩莲花</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 800px;
+			height: 400px;
+			position: relative;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.container .leaf {
+			position: absolute;
+			bottom: -80px;
+			left: 0;
+			width: 300px;
+		    height: 300px;
+		    border-radius: 230px 0px;
+		    background: #43CD80;
+		    opacity: 0.5;
+		    filter: alpha(opacity=50);
+		    
+		    /*transform-origin: bottom right;*/
+		}
+		.leaf:nth-child(1) {
+			background: #8aeaad;
+			left: 500px;
+			transform: rotate(0deg);
+		}
+		
+		.leaf:nth-child(2) {
+			background: #ee9c39;
+			transform: rotate(90deg);
+		}
+		.leaf:nth-child(3) {
+			background: #fad821;
+		    left: 250px;
+		    bottom: -64px;
+			transform: rotate(135deg);
+		}
+		.leaf:nth-child(4) {
+			background: #f2c754;
+			left: 125px;
+			bottom: -75px;
+			transform: rotate(112deg);
+		}
+		.leaf:nth-child(5) {
+			background: #d5df28;
+			left: 374px;
+			bottom: -75px;
+			transform: rotate(-22deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="leaf"></div>
+		<div class="leaf"></div>
+		<div class="leaf"></div>
+		<div class="leaf"></div>
+		<div class="leaf"></div>
+		<!-- <div class="leaf"></div>
+		<div class="leaf"></div> -->
+	</div>
+</body>
+</html>
