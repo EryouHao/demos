@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>伪类实现括号效果</title>
+  <style>
+    html,body {
+      margin: 0;
+      padding: 0;
+      font: 16px '微软雅黑';
+      color: #000;
+    }
+    h3 {
+      text-align: center;
+    }
+    .div1, .div2, .div3 {
+      width: 200px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background: #fff;
+      margin: 20px auto;
+      position: relative;
+    }
+    .div1:after, .div2:after, .div3:after {
+      content: '';
+      width: 216px;
+      height: 36px;
+      border: 2px solid #000;
+      position: absolute;
+      left: -10px;
+      top: 0;
+      z-index: -1;
+    }
+    .div2:after {
+      border-radius: 10px;
+    }
+    .div3:after {
+      border-radius: 20px;
+    }
+    .div4 {
+      margin-left: 300px;
+    }
+    .div4 span{
+      float: left;
+      line-height: 42px;
+    }
+    .div4 span:nth-child(1), .div4 span:nth-child(3) {
+      width: 10px;
+      height: 40px;
+      border: 2px solid #000;
+    }
+    .div4 span:nth-child(1) {
+      border-right: none;
+    }
+    .div4 span:nth-child(3) {
+      border-left: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>适用于文字个数确定</h3>
+  <div class="div1">我们的时代</div>
+  <div class="div2">我们的时代</div>
+  <div class="div3">我们的时代</div>
+  <h3>如果文字数量不确定的话，可以采用多标签实现</h3>
+  <div class="div4"><span></span><span>我们的时代来了，你准备好了吗？Let's go! </span><span></span></div>
+</body>
+</html>
