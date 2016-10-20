@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一个例子带你认识事件委托</title>
+</head>
+<body>
+	<ul id="todo">
+		<li>123</li>
+	</ul>
+	<form action="#" method="post">
+		<label for="newitem">ADD NEW ITEM：</label>
+		<input type="text" name="newitem" id="newitem" placeholder="new item">
+		<input type="submit" value="Add">
+	</form>
+	<script>
+		window.onload = function () {
+
+			var todo = document.querySelector('#todo'),
+				form = document.querySelector('form'),
+				field = document.querySelector('#newitem');
+
+			form.addEventListener('submit', function (ev) {
+
+				var text = field.value;
+
+				if (text !== '') {
+					todo.innerHTML += '<li>' + text + '</li>';
+					field.value = '';
+					field.focus();
+				}
+
+				ev.preventDefault(); // 阻止默认事件，此处指表单跳转刷新
+
+			}, false);
+
+			todo.addEventListener('click', function (ev) {
+
+				var t = ev.srcElement || ev.target; // 捕获事件源，IE下有srcElement属性，chrome等有target
+
+				if (t.tagName === 'LI') {
+					t.parentNode.removeChild(t);
+				}
+
+				ev.preventDefault(); 
+
+			}, false);
+
+		};
+	</script>
+</body>
+</html>
