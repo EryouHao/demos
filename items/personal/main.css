@@ -1,273 +1,382 @@
-*{
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
+
 *, *:after, *:before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 body {
-  font-family: '微软雅黑';
-  font-size: 100%;
-  font-size: 20px;
-  line-height: 1.5;
-  scroll-behavior: smooth;
+    font-family: '微软雅黑';
+    font-size: 62.5%;
+    /*font-size: 20px;*/
+    line-height: 1.5;
+    scroll-behavior: smooth;
 }
+
 a {
-  text-decoration: none;
-  color: #323330;
+    text-decoration: none;
+    color: #323330;
 }
+
 a:hover, a:active {
-  color: #323330;
+    color: #323330;
 }
+
 ul li {
-  list-style: none;
+    list-style: none;
 }
+
 body>header {
-  position: relative;
-  display: table;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  background: #222 no-repeat 50%;
-  background-image: url(star.jpeg);
-  background-attachment: fixed;
-  background-size: cover;
-  overflow: hidden;
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background: #222 no-repeat 50%;
+    background-image: url(star.jpeg);
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
 }
+
 header .title {
-  z-index: 1000;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #fff;
-  max-width: 900px;
+    z-index: 1000;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+    max-width: 900px;
 }
+
 header .title h1 {
-  animation: down 2s linear;
+    font-size: 3rem;
+    animation: down 2s linear;
 }
+
 header .title p {
-  animation: up 2s linear;
+    font-size: 1.4rem;
+    animation: up 2s linear;
 }
+
 #down-btn, #back-top {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  color: #f5da55;
-  font-size: 18px;
-  font-weight: lighter;
-  border: 1px dotted;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  line-height: 50px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: #f5da55;
+    font-size: 18px;
+    font-weight: lighter;
+    border: 1px dotted;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    line-height: 50px;
 }
+
 #contact {
-  z-index: 1000;
-  position: relative;
-  padding-top: 5rem;
-  background: #fff;
-  /*background: rgba(255,255,255,0.7);*/
-  transition: all 2s;
-  /*background: -webkit-linear-gradient(bottom, #fff, transparent);
+    z-index: 1000;
+    position: relative;
+    padding-top: 5rem;
+    background: #fff;
+    /*background: rgba(255,255,255,0.7);*/
+    transition: all 2s;
+    /*background: -webkit-linear-gradient(bottom, #fff, transparent);
   background: linear-gradient(bottom, #fff, transparent);*/
 }
+
 #contact span {
-  font-size: 19px;
-  color: #f5da55;
-  margin-right: 10px;
+    font-size: 19px;
+    color: #f5da55;
+    margin-right: 10px;
 }
+
 #contact span:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
+
 .content {
-  margin: 0 auto;
-  /*padding: 0 0 1em;*/
-  padding: 40px 0;
-  overflow: hidden;
+    margin: 0 auto;
+    /*padding: 0 0 1em;*/
+    padding: 40px 0;
+    overflow: hidden;
 }
+
 .content>.container p {
-  letter-spacing: -0.5px;
-  font-size: 1.35em;
-  margin-bottom: 0.3em;
+    letter-spacing: -0.05rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
 }
+
 .content>.container {
-  margin: 0 auto 1.5em;
-  max-width: 960px;
-  padding: 0 1.25em;
+    margin: 0 auto 1.5rem;
+    max-width: 960px;
+    padding: 0 1.25rem;
 }
+
 .content h2 {
-  margin-bottom: 0.25em;
-  font-size: 2.6em;
+    margin-bottom: 0.25rem;
+    font-size: 2.6rem;
 }
+
 #skill {
-  background: #323330;
-  color: #f5da55;
+    background: #323330;
+    color: #f5da55;
 }
+
 #skill .left {
-  float: left;
-  width: 50%;
+    float: left;
+    width: 50%;
 }
+
 #skill .right {
-  float: left;
-  width: 50%;
+    float: left;
+    width: 50%;
 }
+
 #skill h3 {
-  text-align: center;
+    text-align: center;
+    font-size: 2rem;
 }
-#skill ul {
-  text-align: right;
-}
+
+#skill ul {}
+
 #skill ul li {
-  margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
 }
+
 #skill li span {
-  display: inline-block;
-  width: 250px;
-  height: 20px;
-  background: #252525;
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.1);;
-  border-radius: 20px;
-  vertical-align: text-bottom;
-  position: relative;
+    display: inline-block;
+    text-align: right;
+    width: 25rem;
+    height: 1.2rem;
+    font-size: 1.2rem;
+    background: #252525;
+    box-shadow: inset 0 0.1rem 0 rgba(0, 0, 0, 0.5), 0 0.1rem 0 rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    vertical-align: text-bottom;
+    position: relative;
 }
+
 #skill li span:before {
-  content: '';
-  width: 175px;
-  height: 20px;
-  position: absolute;
-  left: 0;
-  border-radius: 20px;
-  background: #f5da55;
+    content: '';
+    width: 17.5rem;
+    height: 1.2rem;
+    position: absolute;
+    left: 0;
+    border-radius: 2rem;
+    background: #f5da55;
 }
+
+#skill .left li:nth-child(2) span:before {
+    width: 15rem;
+}
+
+#skill .left li:nth-child(3) span:before {
+    width: 10rem;
+}
+
+#skill .left li:nth-child(4) span:before {
+    width: 6rem;
+}
+
+#skill .right li:nth-child(1) span:before {
+    width: 6rem;
+}
+
+#skill .right li:nth-child(2) span:before {
+    width: 10rem;
+}
+
+#skill .right li:nth-child(3) span:before {
+    width: 12.5rem;
+}
+
+#skill .right li:nth-child(4) span:before {
+    width: 10rem;
+}
+
 #skill li span:after {
-  content: attr(data-text);
-  width: 432px;
-  padding: 2px 5px;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  font-size: 12px;
-  opacity: 0;
-  transition: all .3s;
-  margin-top: -20px;
+    content: attr(data-text);
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    font-size: 1.2rem;
+    background: #323330;
+    opacity: 0;
+    transition: all .3s;
+    margin-top: -2rem;
+    text-align: left;
 }
+
 #skill li span:hover::after {
-  opacity: 1;
-  margin-top: 0;
+    opacity: 1;
+    margin-top: 0;
 }
+
 
 /* 项目作品 */
+
 #items ul {
-  /*overflow: hidden;*/
-  margin-right: -40px;
-  padding-top: 10px;
+    /*overflow: hidden;*/
+    /*margin-right: -40px;*/
+    padding-top: 1rem;
 }
+
 #items ul li {
-  display: block;
-  float: left;
-  width: 435px;
-  height: 244px;
-  background: #fff;
-  margin: 0 40px 40px 0;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow:0 0 0 7px #f5da55;
-  position: relative;
+    display: block;
+    float: left;
+    width: 40%;
+    height: auto;
+    background: #fff;
+    margin: 0 10% 10% 0;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    box-shadow: 0 0 0 0.7rem #f5da55;
+    position: relative;
 }
+
 #items ul li img {
-  width: 100%;
-  height: 100%;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
+
 #items ul li .img {
-  width: 435px;
-  height: 244px;
-  position: relative;
+    /*width: 435px;
+  height: 244px;*/
+    width: 100%;
+    height: auto;
+    position: relative;
 }
+
 #items ul li .img:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: all .3s;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all .3s;
 }
+
 #items ul li h3 {
-  position: absolute;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #f5da55;
-  left: 50%;
-  opacity: 0;
-  margin-top: 20px;
-  transition: all .3s;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #f5da55;
+    left: 50%;
+    opacity: 0;
+    margin-top: 2rem;
+    transition: all .3s;
 }
+
 #items ul li .img:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
+
 #items ul li:hover h3 {
-  margin-top: 0;
-  border-bottom: 1px dotted #f5da55;
-  opacity: 1;
+    margin-top: 0;
+    border-bottom: 0.1rem dotted #f5da55;
+    opacity: 1;
 }
+
 
 /* 教育和校内 */
+
 #education {
-  min-height: 400px;
-  color: #323330;
-  background: #f5da55;
-}
-#education h3 {
-  color: #000;
-  font-size: 30px;
+    min-height: 400px;
+    color: #323330;
+    background: #f5da55;
 }
 
+#education h3 {
+    color: #000;
+    font-size: 1.8rem;
+}
+
+
 /* 底部 */
+
 footer {
-  height: 120px;
-  background: #323330;
-  position: relative;
+    height: 120px;
+    background: #323330;
+    position: relative;
 }
+
 #back-top {
-  color: #f5f5f5;
-  border: none;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all .3s;
+    color: #f5f5f5;
+    border: none;
+    box-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.5), inset 0 0.1rem 0 rgba(255, 255, 255, 0.1);
+    transition: all .3s;
 }
+
 #back-top:hover {
-  line-height: 40px;
+    line-height: 40px;
 }
+
 #back-top:active {
-  color: #f5da55;
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: #f5da55;
+    box-shadow: inset 0 0.1rem 0 rgba(0, 0, 0, 0.5), 0 0.1rem 0 rgba(255, 255, 255, 0.1);
 }
+
+
 /* 动画效果 */
+
 @keyframes down {
-  0% {
-    margin-top: -40px;
-    opacity: 0;
-  }
-  100% {
-    margin-top: 0;
-    opacity: 1;
-  }
+    0% {
+        margin-top: -40px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
 }
+
 @keyframes up {
-  0% {
-    margin-top: 100px;
-    opacity: 0;
-  }
-  100% {
-    margin-top: 0;
-    opacity: 1;
-  }
+    0% {
+        margin-top: 100px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+
+/* 响应式适配 */
+
+@media screen and (max-width: 450px) {
+    #contact span {
+        display: block;
+    }
+    #skill .left, #skill .right {
+        float: none;
+        width: 100%;
+    }
+    #skill li span {
+        width: 100%;
+    }
+    #skill li span:after {
+        width: 100%;
+        background: rgba(50, 51, 48, 0.67);
+    }
+    #items ul li {
+        float: none;
+        width: 100%;
+    }
 }
